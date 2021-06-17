@@ -139,3 +139,17 @@ lemma diameter_growth (X : Type) [metric_space X] (S : set X)
 begin
   sorry
 end
+
+variable d : ℕ -- m'agradaria ficar que d ≥ 1 aquí
+local notation `E` := fin d → ℝ
+
+-- hd és superflua, és perquè la dimensió no sigui 0 i aleshores l'enunciat peti
+lemma ordered_vertices_implies_epsilon_fixed (hd : d > 0) (S : set E) (f : E → E) 
+(hf : uniform_continuous_on f S) (ε : ℝ) (hε : 0 < ε)
+: ∃ δ > 0, ∀ T ⊆ S, metric.diam T < δ ∧ 
+(∃ p : fin d → E, ∀ i : fin d, ↑i+1 < d → 
+(f (p i)) i < (p i) i ∧ (f (p (fin_rotate d i)) i ≥ (p (fin_rotate d i)) i))
+→ ∀ x ∈ T, dist (f x) x < ε :=
+begin
+  sorry
+end
